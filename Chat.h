@@ -4,9 +4,16 @@
 
 #ifndef LABPROGRAMMAZIONE_CHAT_H
 #define LABPROGRAMMAZIONE_CHAT_H
+#include "User.h"
+#include "Message.h"
+#include <vector>
 
 
 class Chat {
+private:
+    User firstUser, secondUser;
+    std::vector<Message> messages;
+
 
 };
 
