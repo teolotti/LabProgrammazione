@@ -10,11 +10,11 @@
 
 
 class Chat {
+    Chat(const User &fU,const User &sU): firstUser(fU), secondUser(sU){};
+
 private:
     User firstUser, secondUser;
     std::vector<Message> messages;
-
-
 };
 
 
