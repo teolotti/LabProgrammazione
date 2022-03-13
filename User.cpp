@@ -5,10 +5,6 @@
 #include "User.h"
 #include "Chat.h"
 
-void User::addChat(User &u, Chat &c) {
-    chats.insert(std::make_pair(u.getName(), c));
-}
-
 Chat User::createChat(User &u) {
     Chat c = Chat((*this), u);
     addChat(u, c);
@@ -25,5 +21,14 @@ void User::deleteChat(User &u) {
     chats.erase(u.getName());
 }
 
-
+void User::addChat(User &u, Chat &c) {
+    chats.insert(std::make_pair(u.getName(), c));
 }
+
+
+
+
+
+
+
+

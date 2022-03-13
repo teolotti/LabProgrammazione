@@ -13,10 +13,16 @@ class User;
 
 class Chat {
 public:
-    Chat(User fN,User sN);
+    Chat(User mN,User sN);
+
+    void addMessage(Message &m);
+
+    void readMessages();
+
+    int getUnreadMessages();
 
 private:
-    std::string firstName, secondName;
+    std::string myName, secondName;
     std::vector<Message> messages;
 };
 
