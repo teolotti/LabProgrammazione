@@ -14,16 +14,16 @@ void Chat::addMessage(Message &m) {
 }
 
 void Chat::readMessages() {
-    for(auto msg : messages){
-        if(msg.getSender() == secondName){
+    if(getUnreadMessages() == 0)
+        std::cout << "Nessun messaggio da leggere" << std::endl;
+    for(auto& msg : messages){
+        if(msg.getReceiver() == myName){
             if(!(msg.isRead())) {
-                msg.printMessage();
                 msg.setRead(true);
+                msg.printMessage();
             }
         }
     }
-    if(getUnreadMessages() == 0)
-        std::cout << "Nessun messaggio da leggere" << std::endl;
 }
 
 int Chat::getUnreadMessages() {
@@ -35,12 +35,4 @@ int Chat::getUnreadMessages() {
         }
     }
     return count;
-}
-
-bool Chat::operator==(const Chat &rhs) const {
-    return (myName == rhs.myName && secondName == rhs.secondName);
-}
-
-bool Chat::operator!=(const Chat &rhs) const {
-    return !(rhs == *this);
 }

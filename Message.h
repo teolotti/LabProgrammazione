@@ -30,8 +30,8 @@ public:
         return read;
     }
 
-    void setRead(bool read) {
-        Message::read = read;
+    void setRead(bool r) {
+        read = r;
     }
 
 

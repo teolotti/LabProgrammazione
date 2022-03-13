@@ -29,9 +29,13 @@ public:
         return secondName;
     }
 
-    bool operator==(const Chat &rhs) const;
+    void setMyName(const std::string &myName) {
+        Chat::myName = myName;
+    }
 
-    bool operator!=(const Chat &rhs) const;
+    void setSecondName(const std::string &secondName) {
+        Chat::secondName = secondName;
+    }
 
 private:
     std::string myName, secondName;
