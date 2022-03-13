@@ -18,24 +18,12 @@ public:
         return sender;
     }
 
-    void setSender(const std::string &sender) {
-        Message::sender = sender;
-    }
-
     const std::string &getReceiver() const {
         return receiver;
     }
 
-    void setReceiver(const std::string &receiver) {
-        Message::receiver = receiver;
-    }
-
     const std::string &getText() const {
         return text;
-    }
-
-    void setText(const std::string &text) {
-        Message::text = text;
     }
 
     bool isRead() const {

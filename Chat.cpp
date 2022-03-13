@@ -23,7 +23,7 @@ void Chat::readMessages() {
         }
     }
     if(getUnreadMessages() == 0)
-        std::cout << "Nessun messaggio da leggere" std::endl;
+        std::cout << "Nessun messaggio da leggere" << std::endl;
 }
 
 int Chat::getUnreadMessages() {
@@ -35,4 +35,12 @@ int Chat::getUnreadMessages() {
         }
     }
     return count;
+}
+
+bool Chat::operator==(const Chat &rhs) const {
+    return (myName == rhs.myName && secondName == rhs.secondName);
+}
+
+bool Chat::operator!=(const Chat &rhs) const {
+    return !(rhs == *this);
 }

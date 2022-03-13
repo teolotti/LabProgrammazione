@@ -21,6 +21,18 @@ public:
 
     int getUnreadMessages();
 
+    const std::string &getMyName() const {
+        return myName;
+    }
+
+    const std::string &getSecondName() const {
+        return secondName;
+    }
+
+    bool operator==(const Chat &rhs) const;
+
+    bool operator!=(const Chat &rhs) const;
+
 private:
     std::string myName, secondName;
     std::vector<Message> messages;

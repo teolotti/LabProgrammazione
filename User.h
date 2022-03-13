@@ -6,6 +6,7 @@
 #define LABPROGRAMMAZIONE_USER_H
 #include <string>
 #include <map>
+#include <memory>
 
 
 class Chat;
@@ -14,13 +15,13 @@ class User {
 public:
     explicit User(std::string name): name(name){};
 
-    Chat createChat(User &u);
+    std::shared_ptr<Chat> createChat(User &u);
 
-    Chat findChat(User &u);
+    std::shared_ptr<Chat> findChat(User &u);
 
     void deleteChat(User &u);
 
-    void addChat(User &u, Chat &c);
+    void addChat(User &u, const std::shared_ptr<Chat>& c);
 
     const std::string &getName() const {
         return name;
@@ -32,7 +33,7 @@ public:
 
 private:
     std::string name;
-    std::map<std::string ,Chat> chats;
+    std::map<std::string , std::shared_ptr<Chat>> chats;
 };
 
 

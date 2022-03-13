@@ -5,23 +5,24 @@
 #include "User.h"
 #include "Chat.h"
 
-Chat User::createChat(User &u) {
-    Chat c = Chat((*this), u);
-    addChat(u, c);
-    u.addChat((*this), c);
-    return c;
+std::shared_ptr<Chat> User::createChat(User &u) {
+    Chat *c = new Chat((*this), u);
+    std::shared_ptr<Chat> ptr = std::make_shared<Chat>(*c);
+    addChat(u, ptr);
+    u.addChat((*this), ptr);
+    return ptr;
 }
 
-Chat User::findChat(User &u) {
+std::shared_ptr<Chat> User::findChat(User &u) {
     auto it = chats.find(u.getName());
-    return it->second;
+    return (it->second);
 }
 
 void User::deleteChat(User &u) {
     chats.erase(u.getName());
 }
 
-void User::addChat(User &u, Chat &c) {
+void User::addChat(User &u, const std::shared_ptr<Chat>& c) {
     chats.insert(std::make_pair(u.getName(), c));
 }
 
