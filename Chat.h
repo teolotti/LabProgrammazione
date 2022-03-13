@@ -4,16 +4,19 @@
 
 #ifndef LABPROGRAMMAZIONE_CHAT_H
 #define LABPROGRAMMAZIONE_CHAT_H
-#include "User.h"
-#include "Message.h"
+#include <string>
 #include <vector>
+#include "Message.h"
 
+
+class User;
 
 class Chat {
-    Chat(const User &fU,const User &sU): firstUser(fU), secondUser(sU){};
+public:
+    Chat(User fN,User sN);
 
 private:
-    User firstUser, secondUser;
+    std::string firstName, secondName;
     std::vector<Message> messages;
 };
 

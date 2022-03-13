@@ -6,10 +6,13 @@
 #define LABPROGRAMMAZIONE_USER_H
 #include <string>
 #include <map>
-#include "Chat.h"
+
+
+class Chat;
 
 class User {
-    explicit User(std::string name) : name(name){};
+public:
+    explicit User(std::string name): name(name){};
 
     ~User(){};
 
@@ -21,12 +24,13 @@ class User {
 
     void addChat(User &u, Chat &c);
 
-    bool operator==(const User &u);
+    const std::string &getName() const {
+        return name;
+    }
 
 private:
     std::string name;
-    std::map<User,Chat> chats;
-
+    std::map<std::string ,Chat> chats;
 };
 
 
