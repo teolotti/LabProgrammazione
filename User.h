@@ -14,8 +14,6 @@ class User {
 public:
     explicit User(std::string name): name(name){};
 
-    ~User(){};
-
     Chat createChat(User &u);
 
     Chat findChat(User &u);
@@ -26,6 +24,10 @@ public:
 
     const std::string &getName() const {
         return name;
+    }
+
+    void setName(const std::string &name) {
+        User::name = name;
     }
 
 private:
