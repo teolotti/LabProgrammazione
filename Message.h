@@ -6,11 +6,14 @@
 #define LABPROGRAMMAZIONE_MESSAGE_H
 #include "User.h"
 #include <string>
+#include <ctime>
 
 
 class Message {
 public:
-    Message(const User& s, const User& r, std::string t, bool read = false) : sender(s.getName()), receiver(r.getName()), text(t), read(read){};
+    Message(const User& s, const User& r, std::string t, bool read = false) : sender(s.getName()), receiver(r.getName()), text(t), read(read){
+        time(&currentTime);
+    };
 
     void printMessage();
 
@@ -34,11 +37,16 @@ public:
         read = r;
     }
 
+    time_t getCurrentTime() const {
+        return currentTime;
+    }
+
 
 private:
     std::string sender, receiver;
     std::string text;
     bool read;
+    time_t currentTime;
 
 
 

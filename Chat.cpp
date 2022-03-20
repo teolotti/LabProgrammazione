@@ -3,7 +3,6 @@
 //
 
 #include "Chat.h"
-#include "User.h"
 #include <iostream>
 
 Chat::Chat(User mN, User sN):myName(mN.getName()), secondName(sN.getName()){}
