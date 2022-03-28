@@ -16,7 +16,9 @@ public:
     virtual ~MessageAlert(){};
 
     void attach() override;
+
     void detach() override;
+
     void update() override;
 
     void draw(const Message& msg);

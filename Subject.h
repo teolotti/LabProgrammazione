@@ -12,7 +12,9 @@ public:
     virtual ~Subject() {};
 
     virtual void subscribe(std::shared_ptr<Observer> o) = 0;
+
     virtual void unsubscribe(std::shared_ptr<Observer> o) = 0;
+
     virtual void notify() = 0;
 };
 #endif //LABPROGRAMMAZIONE_SUBJECT_H

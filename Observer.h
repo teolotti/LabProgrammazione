@@ -12,6 +12,7 @@ public:
     virtual void update() = 0;
 
     virtual void attach() = 0;
+
     virtual void detach() = 0;
 };
 #endif //LABPROGRAMMAZIONE_OBSERVER_H
