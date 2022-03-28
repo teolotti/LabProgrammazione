@@ -35,3 +35,20 @@ int Chat::getUnreadMessages() {
     }
     return count;
 }
+
+const Message &Chat::lastMessage() const {
+    return messages.back();
+}
+
+void Chat::subscribe(std::shared_ptr<Observer> o) {
+    observers.push_back(o);
+}
+
+void Chat::unsubscribe(std::shared_ptr<Observer> o) {
+    observers.remove(o);
+}
+
+void Chat::notify() {
+    for(const auto& obs : observers)
+        obs->update();
+}
