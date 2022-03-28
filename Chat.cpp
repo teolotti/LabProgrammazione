@@ -10,6 +10,8 @@ Chat::Chat(User mN, User sN):myName(mN.getName()), secondName(sN.getName()){}
 void Chat::addMessage(Message &m) {
     if((m.getSender() == myName && m.getReceiver() == secondName) || (m.getSender() == secondName && m.getReceiver() == myName))
         messages.push_back(m);
+    if(m.getReceiver() == myName)
+        this->notify();
 }
 
 void Chat::readMessages() {
