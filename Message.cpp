@@ -6,7 +6,6 @@
 #include <iostream>
 
 void Message::printMessage() {
-    std::cout << "Sender: " << this->getSender() << std::endl;
-    std::cout << "Receiver: " << this->getReceiver() << std::endl;
-    std::cout << "Text: " << this->getText() << std::endl;
+    std::cout << "Da " << this->getSender() << " a " << this->getReceiver() << std::endl;
+    std::cout << "Testo: " << this->getText() << std::endl;
 }

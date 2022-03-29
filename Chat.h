@@ -19,7 +19,7 @@ public:
 
     void addMessage(Message &m);
 
-    void readMessages(User receiver);
+    void readMessages();
 
     int getUnreadMessages();
 
