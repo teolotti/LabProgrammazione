@@ -14,11 +14,11 @@ void Chat::addMessage(Message &m) {
         this->notify();
 }
 
-void Chat::readMessages() {
+void Chat::readMessages(User receiver) {
     if(getUnreadMessages() == 0)
         std::cout << "Nessun messaggio da leggere" << std::endl;
     for(auto& msg : messages){
-        if(msg.getReceiver() == myName){
+        if(msg.getReceiver() == receiver.getName()){
             if(!(msg.isRead())) {
                 msg.setRead(true);
                 msg.printMessage();
