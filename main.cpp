@@ -23,7 +23,8 @@ int main() {
     ptr->addMessage(msg2);
     ptr->addMessage(msg3);
     ptr->addMessage(msg4);
-    ptr->readMessages();
-    ptr->readMessages();
+    m.readMessages(p);
+    p.readMessages(m);
+    p.readMessages(m);
     return 0;
 }

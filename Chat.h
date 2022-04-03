@@ -19,8 +19,6 @@ public:
 
     void addMessage(Message &m);
 
-    void readMessages();
-
     int getUnreadMessages();
 
     const Message& lastMessage() const;
@@ -45,6 +43,10 @@ public:
 
     void setSecondName(const std::string &secondName) {
         Chat::secondName = secondName;
+    }
+
+    std::vector<Message> &getMessages(){
+        return messages;
     }
 
 private:

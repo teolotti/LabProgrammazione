@@ -14,22 +14,6 @@ void Chat::addMessage(Message &m) {
         this->notify();
 }
 
-void Chat::readMessages() {
-    if (getUnreadMessages() == 0)
-        std::cout << "Nessun messaggio da leggere nella chat con " << secondName << std::endl;
-    int count = 1;
-    for (auto &msg: messages) {
-        if (msg.getReceiver() == myName) {
-            if (!(msg.isRead())) {
-                msg.setRead(true);
-                std::cout << "Messaggio numero " << count << std::endl;
-                msg.printMessage();
-                count++;
-            }
-        }
-    }
-}
-
 int Chat::getUnreadMessages() {
     int count = 0;
     for(const auto& msg : messages){
