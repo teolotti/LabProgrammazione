@@ -13,7 +13,7 @@ class Chat;
 
 class User {
 public:
-    explicit User(std::string name): name(name){};
+    explicit User(const std::string &name): name(name){};
 
     std::shared_ptr<Chat> createChat(User &u);
 

@@ -14,7 +14,7 @@ void Chat::addMessage(Message &m) {
         this->notify();
 }
 
-int Chat::getUnreadMessages() {
+int Chat::getUnreadMessages() const {
     int count = 0;
     for(const auto& msg : messages){
         if(msg.getReceiver() == myName) {

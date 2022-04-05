@@ -11,7 +11,7 @@
 
 class Message {
 public:
-    Message(const User& s, const User& r, std::string t, bool read = false) : sender(s.getName()), receiver(r.getName()), text(t), read(read){
+    Message(const User& s, const User& r, const std::string &t, bool read = false) : sender(s.getName()), receiver(r.getName()), text(t), read(read){
         time(&currentTime);
     };
 

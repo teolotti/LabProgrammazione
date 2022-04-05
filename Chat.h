@@ -19,7 +19,7 @@ public:
 
     void addMessage(Message &m);
 
-    int getUnreadMessages();
+    int getUnreadMessages() const;
 
     const Message& lastMessage() const;
 
@@ -35,14 +35,6 @@ public:
 
     const std::string &getSecondName() const {
         return secondName;
-    }
-
-    void setMyName(const std::string &myName) {
-        Chat::myName = myName;
-    }
-
-    void setSecondName(const std::string &secondName) {
-        Chat::secondName = secondName;
     }
 
     std::vector<Message> &getMessages(){
