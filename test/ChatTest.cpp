@@ -22,5 +22,22 @@ TEST(Chat, UnreadMessages) {
     Chat c(p, t);
     c.addMessage(m1);
     c.addMessage(m2);
-    ASSERT_EQ(c.getUnreadMessages(), 2);
+    ASSERT_EQ(c.getUnreadMessages(p.getName()), 2);
+    ASSERT_EQ(c.getUnreadMessages(t.getName()), 0);
+    Message m3(p, t, "Bene Grazie");
+    c.addMessage(m3);
+    ASSERT_EQ(c.getUnreadMessages(t.getName()), 1);
+    c.drawMessages(p);
+    ASSERT_EQ(c.getUnreadMessages(p.getName()), 0);
+    c.drawMessages(t);
+    ASSERT_EQ(c.getUnreadMessages(t.getName()), 0);
+}
+
+TEST(Chat, exception){
+    User t("Tommaso");
+    User p("Paolo");
+    User a("Angela");
+    Chat c(p, t);
+    Message m2(t, a, "Come stai?");
+    ASSERT_THROW(c.addMessage(m2), std::logic_error);
 }

@@ -4,12 +4,16 @@
 
 #include "Chat.h"
 #include <iostream>
+#include <exception>
 
 Chat::Chat(User mN, User sN):myName(mN.getName()), secondName(sN.getName()){}
 
 void Chat::addMessage(Message &m) {
     if((m.getSender() == myName && m.getReceiver() == secondName) || (m.getSender() == secondName && m.getReceiver() == myName))
         messages.push_back(m);
+    else{
+        throw std::logic_error("Sender e receiver del messaggio non corrispondono agli utenti della chat");
+    }
     if(m.getReceiver() == myName)
         this->notify();
 }
