@@ -11,11 +11,7 @@ TEST(Chat, GetterSetter) {
     User m("Matilde");
     Chat c(s, m);
     ASSERT_EQ(c.getMyName(), "Silvia");
-    c.setMyName("Caterina");
-    ASSERT_EQ(c.getMyName(), "Caterina");
     ASSERT_EQ(c.getSecondName(), "Matilde");
-    c.setSecondName("Claudia");
-    ASSERT_EQ(c.getSecondName(), "Claudia");
 }
 
 TEST(Chat, UnreadMessages) {

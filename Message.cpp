@@ -5,7 +5,7 @@
 #include "Message.h"
 #include <iostream>
 
-void Message::printMessage() {
+void Message::printMessage() const {
     std::cout << "Da " << this->getSender() << " a " << this->getReceiver() << std::endl;
     std::cout << "Testo: " << this->getText() << std::endl;
 }

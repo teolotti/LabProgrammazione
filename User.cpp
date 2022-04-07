@@ -21,20 +21,7 @@ std::shared_ptr<Chat> User::findChat(User &u) {
 
 void User::readMessages(User &u) {
     std::shared_ptr<Chat> chat = findChat(u);
-    int count = 1;
-    for (auto &msg: chat->getMessages()) {
-        if (msg.getReceiver() == this->getName()) {
-            if (!(msg.isRead())) {
-                msg.setRead(true);
-                std::cout << "Messaggio numero " << count << std::endl;
-                msg.printMessage();
-                count++;
-            }
-        }
-    }
-    if (count == 1){
-        std::cout << "Nessun messaggio da leggere nella chat con " << u.getName() << std::endl;
-    }
+    chat->drawMessages(*this);
 }
 
 void User::deleteChat(User &u) {

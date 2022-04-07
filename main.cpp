@@ -25,6 +25,5 @@ int main() {
     ptr->addMessage(msg4);
     m.readMessages(p);
     p.readMessages(m);
-    p.readMessages(m);
     return 0;
 }

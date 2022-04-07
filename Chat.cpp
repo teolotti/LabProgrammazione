@@ -14,15 +14,28 @@ void Chat::addMessage(Message &m) {
         this->notify();
 }
 
-int Chat::getUnreadMessages() const {
+int Chat::getUnreadMessages(const std::string &rec) const{
     int count = 0;
     for(const auto& msg : messages){
-        if(msg.getReceiver() == myName) {
+        if(msg.getReceiver() == rec) {
             if (!(msg.isRead()))
                 count++;
         }
     }
     return count;
+}
+
+void Chat::drawMessages(User &u){
+    if(getUnreadMessages(u.getName())==0)
+        std::cout << "Nessun messaggio da leggere da parte di " << u.getName() << std::endl;
+    else{
+        for(auto& msg : messages){
+            if(msg.getReceiver() == u.getName() && !(msg.isRead())){
+                    msg.setRead(true);
+                    msg.printMessage();
+            }
+        }
+    }
 }
 
 const Message &Chat::lastMessage() const {
@@ -41,3 +54,4 @@ void Chat::notify() {
     for(const auto& obs : observers)
         obs->update();
 }
+

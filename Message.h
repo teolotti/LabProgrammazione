@@ -15,7 +15,7 @@ public:
         time(&currentTime);
     };
 
-    void printMessage();
+    void printMessage() const;
 
     const std::string &getSender() const {
         return sender;

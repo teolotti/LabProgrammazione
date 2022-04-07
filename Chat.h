@@ -19,7 +19,9 @@ public:
 
     void addMessage(Message &m);
 
-    int getUnreadMessages() const;
+    int getUnreadMessages(const std::string &rec) const;
+
+    void drawMessages(User &u);
 
     const Message& lastMessage() const;
 

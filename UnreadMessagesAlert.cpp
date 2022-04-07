@@ -16,7 +16,7 @@ void UnreadMessagesAlert::detach() {
 }
 
 void UnreadMessagesAlert::update() {
-    this->draw(subject->getUnreadMessages());
+    this->draw(subject->getUnreadMessages(subject->getMyName()));
 }
 
 void UnreadMessagesAlert::draw(int unreadMsg) {
