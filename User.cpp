@@ -14,7 +14,7 @@ std::shared_ptr<Chat> User::createChat(User &u) {
     return ptr;
 }
 
-std::shared_ptr<Chat> User::findChat(User &u) {
+std::shared_ptr<Chat> User::findChat(User &u) const {
     auto it = chats.find(u.getName());
     return (it->second);
 }

@@ -17,7 +17,7 @@ public:
 
     std::shared_ptr<Chat> createChat(User &u);
 
-    std::shared_ptr<Chat> findChat(User &u);
+    std::shared_ptr<Chat> findChat(User &u) const;
 
     void readMessages(User &u);
 

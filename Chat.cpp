@@ -6,7 +6,7 @@
 #include <iostream>
 #include <exception>
 
-Chat::Chat(User mN, User sN):myName(mN.getName()), secondName(sN.getName()){}
+Chat::Chat(const User &mN, const User &sN):myName(mN.getName()), secondName(sN.getName()){}
 
 void Chat::addMessage(Message &m) {
     if((m.getSender() == myName && m.getReceiver() == secondName) || (m.getSender() == secondName && m.getReceiver() == myName))

@@ -15,7 +15,7 @@ class User;
 
 class Chat : public Subject {
 public:
-    Chat(User mN,User sN);
+    Chat(const User &mN,const User &sN);
 
     void addMessage(Message &m);
 
@@ -37,10 +37,6 @@ public:
 
     const std::string &getSecondName() const {
         return secondName;
-    }
-
-    std::vector<Message> &getMessages(){
-        return messages;
     }
 
 private:
