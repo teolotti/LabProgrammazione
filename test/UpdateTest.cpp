@@ -14,8 +14,6 @@ TEST(UpdateTest, getter){
     UpdateTest UT(ptr);
     UT.attach();
     ASSERT_EQ(UT.getCount(), 0);
-    ptr->addMessage(m1);
-    ASSERT_EQ(UT.getCount(), 1);
     ptr->addMessage(m2);
-    ASSERT_EQ(UT.getCount(), 2);
+    ASSERT_EQ(UT.getCount(), 1);
 }
