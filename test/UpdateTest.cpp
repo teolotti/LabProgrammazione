@@ -3,17 +3,19 @@
 //
 #include "../UpdateTest.h"
 #include "gtest/gtest.h"
+#include <memory>
 
 TEST(UpdateTest, getter){
+    std::cout << "   " << std::endl;
     User a("alice");
     User b("bob");
     Chat* c = new Chat(a, b);
-    std::shared_ptr<Chat> ptr = std::make_shared<Chat>(*c);
-    Message m1(a, b, "Ci sei domani?");
+    std::shared_ptr<Chat> ptr (c);
     Message m2(b, a, "Sì, ci sono");
-    UpdateTest UT(ptr);
-    UT.attach();
-    ASSERT_EQ(UT.getCount(), 0);
+    auto ptr1 = std::make_unique<UpdateTest>(ptr);
+    std::cout << ptr1->getCount() << std::endl;
+    ptr1->attach();
+    ASSERT_EQ(ptr1->getCount(), 0);
     ptr->addMessage(m2);
-    ASSERT_EQ(UT.getCount(), 1);
+    ASSERT_EQ(ptr1->getCount(), 1);
 }

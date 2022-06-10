@@ -5,14 +5,12 @@
 #include <iostream>
 #include "MessageAlert.h"
 
-void MessageAlert::attach() {
-    std::shared_ptr<MessageAlert> ptr = std::make_shared<MessageAlert>(*this);
-    subject->subscribe(ptr);
+void MessageAlert::attach(){
+    subject->subscribe(this);
 }
 
 void MessageAlert::detach() {
-    std::shared_ptr<MessageAlert> ptr = std::make_shared<MessageAlert>(*this);
-    subject->unsubscribe(ptr);
+    subject->unsubscribe(this);
 }
 
 void MessageAlert::update() {

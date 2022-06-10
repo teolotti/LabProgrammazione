@@ -4,6 +4,8 @@
 
 #ifndef LABPROGRAMMAZIONE_UPDATETEST_H
 #define LABPROGRAMMAZIONE_UPDATETEST_H
+#include <utility>
+#include <iostream>
 #include "Observer.h"
 #include "Chat.h"
 
@@ -12,13 +14,11 @@ public:
     UpdateTest(std::shared_ptr<Chat> sub) : subject(sub){};
 
     void attach() override {
-        std::shared_ptr<UpdateTest> ptr = std::make_shared<UpdateTest>(*this);
-        subject->subscribe(ptr);
+        subject->subscribe(this);
     };
 
     void detach() override{
-        std::shared_ptr<UpdateTest> ptr = std::make_shared<UpdateTest>(*this);
-        subject->unsubscribe(ptr);
+        subject->unsubscribe(this);
     };
 
     void update() override{

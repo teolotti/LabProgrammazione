@@ -25,9 +25,9 @@ public:
 
     const Message& lastMessage() const;
 
-    void subscribe(std::shared_ptr<Observer> o) override;
+    void subscribe(Observer* o) override;
 
-    void unsubscribe(std::shared_ptr<Observer> o) override;
+    void unsubscribe(Observer* o) override;
 
     void notify() override;
 
@@ -42,7 +42,7 @@ public:
 private:
     std::string myName, secondName;
     std::vector<Message> messages;
-    std::list<std::shared_ptr<Observer>> observers;
+    std::list<Observer*> observers;
 };
 
 

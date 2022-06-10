@@ -6,13 +6,11 @@
 #include <iostream>
 
 void UnreadMessagesAlert::attach() {
-    std::shared_ptr<UnreadMessagesAlert> ptr = std::make_shared<UnreadMessagesAlert>(*this);
-    subject->subscribe(ptr);
+    subject->subscribe(this);
 }
 
 void UnreadMessagesAlert::detach() {
-    std::shared_ptr<UnreadMessagesAlert> ptr = std::make_shared<UnreadMessagesAlert>(*this);
-    subject->unsubscribe(ptr);
+    subject->unsubscribe(this);
 }
 
 void UnreadMessagesAlert::update() {

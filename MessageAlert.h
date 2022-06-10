@@ -12,7 +12,7 @@
 
 class MessageAlert : public Observer {
 public:
-    MessageAlert(bool on, std::shared_ptr<Chat> sub) : on(on), subject(sub) {};
+    MessageAlert(bool on, std::shared_ptr<Chat> sub) : on(on), subject(sub){};
     virtual ~MessageAlert(){};
 
     void attach() override;
