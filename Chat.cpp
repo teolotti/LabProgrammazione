@@ -3,7 +3,7 @@
 //
 
 #include "Chat.h"
-#include "UpdateTest.h"
+#include "test/UpdateTest.h"
 #include <iostream>
 #include <exception>
 

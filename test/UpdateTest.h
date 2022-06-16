@@ -6,8 +6,8 @@
 #define LABPROGRAMMAZIONE_UPDATETEST_H
 #include <utility>
 #include <iostream>
-#include "Observer.h"
-#include "Chat.h"
+#include "../Observer.h"
+#include "../Chat.h"
 
 class UpdateTest : public Observer {
 public:
